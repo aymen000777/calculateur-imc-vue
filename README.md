@@ -1,6 +1,6 @@
-# Petit plan — Gestionnaire de tâches
+# Repère — Calculateur d’IMC
 
-Application Vue 3 pour noter les tâches du jour, les marquer comme terminées et suivre le nombre de tâches restantes. Les tâches sont conservées en mémoire pendant la session du navigateur.
+Application Vue 3 en français qui estime l’indice de masse corporelle à partir du poids et de la taille. Les valeurs peuvent être saisies avec une virgule ou un point décimal; les données restent dans le navigateur.
 
 ## Installation et lancement
 
@@ -17,22 +17,23 @@ npm run build
 
 ## Fonctions réalisées
 
-- Ajouter une tâche et ignorer les saisies vides.
-- Cocher une tâche terminée; son texte est alors barré.
-- Supprimer une tâche.
-- Calculer automatiquement le nombre de tâches restantes et la progression.
+- Calculer l’IMC avec la formule poids (kg) / taille (m)².
+- Valider le poids (20 à 300 kg) et la taille (80 à 250 cm).
+- Afficher une catégorie indicative et une échelle visuelle.
+- Réinitialiser le formulaire et corriger une saisie invalide.
 
 ## Notions Vue utilisées
 
-- `ref` rend réactifs le texte saisi et la liste des tâches.
-- `v-model` relie le champ texte et les cases à cocher à ces données.
-- `v-for` affiche une ligne pour chaque tâche.
-- `:key` fournit à Vue un identifiant stable pour chaque ligne.
-- `computed` recalcule le compteur des tâches non terminées lorsque la liste change.
-- `@submit.prevent` intercepte l’envoi du formulaire sans recharger la page.
-- `@click` appelle la suppression de la tâche sélectionnée.
+- `ref` stocke les champs, le résultat et le message d’erreur de façon réactive.
+- `computed` convertit les valeurs saisies et détermine la catégorie de l’IMC.
+- `v-model` synchronise les champs avec les valeurs réactives.
+- `@submit.prevent` lance le calcul sans recharger la page.
+- `@click` permet de réinitialiser le formulaire.
+- `:class` et `:style` adaptent l’état visuel à l’erreur et au résultat.
 
 ## Captures
 
-- [Deux tâches et leur compteur](captures/taches-en-cours.png)
-- [Tâche terminée et compteur actualisé](captures/tache-terminee.png)
+- `captures/calcul-valide.png` : résultat obtenu avec des mesures valides.
+- `captures/erreur-saisie.png` : message affiché pour une valeur invalide.
+
+L’IMC est un indicateur général et ne remplace pas l’avis d’un professionnel de santé.
